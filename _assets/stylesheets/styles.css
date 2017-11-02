@@ -26,11 +26,73 @@ a img {
     border-width: 0;
 }
 
+.TK-Hat {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #eff0f1;
+    color: #4d4f52;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 42042;
+}
+.TK-Hat::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.TK-Hat *,
+.TK-Hat:after,
+.TK-Hat:before {
+    box-sizing: border-box;
+}
+.TK-Hat-Brand {
+    float: left;
+    width: 150px;
+    margin: 0;
+}
+.TK-PRGS-Logo {
+    display: block;
+    outline: none!important;
+    text-decoration: none!important;
+    transition: color .1s linear, background .1s linear, opacity .1s linear;
+}
+.TK-PRGS-Logo:focus,
+.TK-PRGS-Logo:hover {
+    opacity: .75;
+}
+.TK-PRGS-Logo svg {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+@media only screen and (max-width: 1100px) and (min-width: 880px) {
+   .TK-Hat-Brand {
+         width: 120px;
+         min-width: 120px;
+     }
+}
+@media only screen and (max-width: 880px) {
+    .TK-Hat-Brand {
+        width: 100px;
+        min-width: 100px;
+    }
+}
+
+
 /* Header */
 
 #page-header {
     background-color: #2a2d33;
     font-size: 12px;
+	padding: 16px 0 16px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    top: 41px;
+    z-index: 100;
 }
 
 #page-header:after {
@@ -47,26 +109,20 @@ a img {
 #logo-bar-report-server {
     font-size: 14px;
 	float: left;
-    margin-bottom: 1.717em;
-    margin-left: 1.833em;
-    margin-top: 1.617em;
 }
 
 #logo-bar a,
 #logo-bar-report-server a {
 	display: inline-block;
 	background: url('../images/telerik_logo_report-server.png') 0 center no-repeat;
-	height: 33px;
+	background-size: 315px 34px;
+	height: 34px;
 	color: #fff;
-	width: 236px;
+	width: 315px;
 }
 
 #logo-bar span {
 	display: none;
-}
-
-#logo-bar-report-server a{
-	background: url('../images/telerik_logo_report-server.png') 0 center no-repeat;
 }
 
 #logo-bar-report-server span {
@@ -87,9 +143,9 @@ a img {
     display: inline-block;
     font-size: 15px;
     font-weight: bold;
-    line-height: 0.933em;
-    margin: 1.467em 0.267em;
-    padding: 0.667em 2em;
+    line-height: 1.33334;
+    margin: 1px 4px 0 4px;
+    padding: 6px 30px;
     position: relative;
     text-align: center;
     transition-duration: 0.2s;
@@ -154,19 +210,20 @@ a img {
     background: transparent; 
     display: none; 
     position: relative;
-    margin-left: 1.833em;
     cursor: pointer;
+	vertical-align: top;
+    margin: 8px 0 0 0;
 }
 
 #page-search {
     margin: 0;
     position: absolute;
-    top: 10px;
+    top: 5px;
     background-color: transparent;
     padding: 0;
     right: 514px;
     text-align: right;
-    left: 20%;
+    left: 415px;
 }
 
 #page-search.search-visibility {
@@ -639,6 +696,7 @@ a.footer-links:hover {
 
 #logo-bar ul,
 #logo-bar-report-server ul {
+	float: left;
     list-style: none;
     display: inline-block;
     margin: 0;
@@ -663,8 +721,10 @@ a.footer-links:hover {
 }
 
 .logo {
-    font-size: 14px;
-    margin-left: 29px;
+    font-size: 14px;   
+    height: 30px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .logo em {
@@ -775,7 +835,7 @@ header, nav, section, article, aside, footer {
     min-width: 24px;
 } 
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     #page-nav {
        width: 30%; 
     }
@@ -796,10 +856,14 @@ header, nav, section, article, aside, footer {
     #page-search {
         right: 390px;
     }
-}
+} */
 
 /* Responsive styles */
-@media (max-width:800px) {
+@media (max-width:1200px) {
+	#page-edit-link{
+        display: none;
+    }
+ 
     body {
         min-width: initial;
     }
@@ -820,7 +884,8 @@ header, nav, section, article, aside, footer {
     }
 
     #page-nav {
-        min-width: 250px;
+        width: 30%; 
+        min-width: 300px; 
     }
 
     div#page-inner-content {
@@ -901,3 +966,229 @@ header, nav, section, article, aside, footer {
         display: none;
     }
 }
+
+@media (max-width: 600px) {
+	#page-header {
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: row;
+		flex-direction: row;
+		align-items: center;
+	}
+	#logo-bar {
+		-webkit-flex: 1;
+		flex: 1;
+	}
+	#logo-bar a {
+		display: block;
+	}
+	#logo-bar img {
+		max-width: 100%;
+	}
+	#page-header .show-search {
+		margin: 0 1em;
+		position: static;
+	}
+} 
+
+/* SART Feedback form styles */
+#feedback-section {
+	margin-top: 15px;
+	margin-left: 40px;		
+	padding-bottom: 20px;	
+}
+
+#feedback-menu-container {
+	width: 100%;
+	max-width: 930px;
+	padding-top: 15px;
+	border-top: 2px solid #ebecee;
+}
+
+#helpful-buttons-container {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	position: relative;
+}
+
+#helpful-buttons-container button {
+	float: right;
+	line-height: 0.933em;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0.667em 2.000em;
+	background-color: #fff;
+	color: #555;
+	border-width: 0;
+	cursor: pointer;
+	background-clip: padding-box;
+	border: 1px solid #ccc;
+	transition-property: background-color, color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+
+#helpful-buttons-container span {
+	margin-top: 2px;
+}
+
+#yesButton {
+	margin-right: 10px;
+}
+
+#helpful-buttons-container button:hover{
+	background-color: #2a2d33;
+	color: #fff;
+}
+
+#feedback-submitted-container,
+#additional-feedback-button {
+	/* font-size: 1.5em; */
+	/* visibility: hidden; */
+	display: none; 	
+	font-size: 22px;
+	font-weight: bold;	
+}
+
+#feedback-submitted-container {
+	float: right;	
+	color: #000;	
+}
+
+#additional-feedback-button {
+	color: #428bca;
+}
+
+#additional-feedback-button :hover {
+	cursor: pointer;
+	color: #2a2d33;
+}
+
+.k-widget.k-window.k-window-titleless {	
+	height: 560px !important;
+	width: 500px !important;
+	top: 188px !important;	
+	border: none;
+	position: absolute;
+	background-color: #fff;
+}
+
+#feedback-form-window input::-webkit-input-placeholder,
+#feedback-form-window textarea::-webkit-input-placeholder,
+#feedback-form-window input:-moz-placeholder,
+#feedback-form-window textarea:-moz-placeholder,
+#feedback-form-window input::-moz-placeholder,
+#feedback-form-window textarea::-moz-placeholder,
+#feedback-form-window input:-ms-input-placeholder,
+#feedback-form-window textarea:-ms-input-placeholder {
+	color: #d9d9d9;
+	font-style: italic;
+}
+
+#feedback-form-window .feedback-extw__title {
+	margin: 0;
+	font-size: 22px;
+}
+
+#feedback-form-window .feedback-extw__subtitle {
+	margin-top: 7px;
+	margin-bottom: 0;
+	font-size: 10.5pt;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+
+#feedback-form  #feedback-checkbox-area {
+	margin-top: 24px;
+}
+
+#feedback-form label {
+	display: block;
+	margin: 5px 0 10px;
+}
+
+#feedback-extw__checkbox:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#feedback-form .checkbox__input {
+	float: left;
+}
+
+#feedback-form .checkbox__text {	
+	line-height: 18px;
+	margin-left: 5px;
+}
+
+#feedback-form .feedback-extw__textarea,
+#feedback-form .feedback-extw__input {
+	padding: 10px;
+	border: 1px solid #d9d9d9;
+	width: 100%;
+	box-sizing: border-box;
+	font: inherit;
+}
+
+#feedback-form .feedback-extw__textarea {
+	margin-top: 16px;
+	height: 156px;
+	resize: none;
+	overflow: auto;
+}
+
+#feedback-form .feedback-extw__input {
+	margin: 12px 0 30px;
+}
+
+#feedback-form-window button {
+	line-height: 0.933em;
+	font-size: 10.5pt;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 2px;
+	padding: 0.667em 2.000em;
+	background-color: #015991;
+	color: #fff;
+	border-width: 0;
+	cursor: pointer;
+	background-clip: padding-box;
+	border: 1px solid #015991;
+	transition-property: background-color, color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease;
+}
+
+#feedback-form-window button:hover {
+	background-color: #013a5e;
+}
+
+button#form-close-button {
+	background-color: #fff;
+	color: #555;
+	border: 1px solid #ccc;
+	margin-left: 8px;
+}
+
+button#form-close-button:hover {
+	background-color: #ccc;
+}
+
+#feedback-form span.k-tooltip {
+	border: 0;
+	color: #ff0000;
+	font-style: italic;
+	font-size: 12px;
+}
+
+div.k-window-content {
+	padding: 27px 30px 10px 30px;
+	overflow: hidden;
+}
+/* END Feedback form styles*/
